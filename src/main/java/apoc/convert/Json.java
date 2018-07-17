@@ -100,7 +100,7 @@ public class Json {
             }
         }
         return paths.stream()
-                .filter(path -> path::startNode.equals(rootNode))
+                .filter(path -> rootNode == null || path::startNode.equals(rootNode))
                 .distinct()
                 .map(n -> maps.remove(n.getId()))
                 .map(m -> m == null ? Collections.<String,Object>emptyMap() : m)
